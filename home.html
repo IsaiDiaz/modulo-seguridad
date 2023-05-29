@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Clasificacion de la información</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <header>
+    <h1>Sistema de Clasificación de Información</h1>
+  </header>
+
+  <div class=" form-container main-container">
+    <h2>Amenazas y Vulnerabilidades</h2>
+    <div id="preguntas"></div>
+    <div id="score" class="mt-3"></div>
+    <button class="btn btn-primary mt-3" onclick="calcularScore()">Calcular Score</button>
+  </div>
+  <div class="form-container">
+    <h2>Clasificacion de la información</h2>
+    <div id="step1" class="form-step active">
+      <label>¿La información puede causar un impacto económico si se expone?</label>
+      <input type="radio" id="impactoEconomicoSi" name="impactoEconomico" value="si">
+      <label for="impactoEconomicoSi">Sí</label>
+      <input type="radio" id="impactoEconomicoNo" name="impactoEconomico" value="no">
+      <label for="impactoEconomicoNo">No</label>
+
+      <label>¿La información puede afectar a servicios críticos si se expone?</label>
+      <input type="radio" id="serviciosCriticosSi" name="serviciosCriticos" value="si">
+      <label for="serviciosCriticosSi">Sí</label>
+      <input type="radio" id="serviciosCriticosNo" name="serviciosCriticos" value="no">
+      <label for="serviciosCriticosNo">No</label>
+
+      <label>¿La información contiene detalles técnicos o específicos sobre los productos o servicios de la
+        empresa?</label>
+      <input type="radio" id="tecnicosSi" name="tecnicos" value="si">
+      <label for="tecnicosSi">Sí</label>
+      <input type="radio" id="tecnicosNo" name="tecnicos" value="no">
+      <label for="tecnicosNo">No</label>
+
+      <label>¿La información puede dañar la reputación de la empresa si se expone?</label>
+      <input type="radio" id="reputacionSi" name="reputacion" value="si">
+      <label for="reputacionSi">Sí</label>
+      <input type="radio" id="reputacionNo" name="reputacion" value="no">
+      <label for="reputacionNo">No</label>
+
+      <label>¿La información está relacionada con la seguridad o infraestructura de la empresa?</label>
+      <input type="radio" id="seguridadSi" name="seguridad" value="si">
+      <label for="seguridadSi">Sí</label>
+      <input type="radio" id="seguridadNo" name="seguridad" value="no">
+      <label for="seguridadNo">No</label>
+
+      <label>¿La información está protegida por leyes de propiedad intelectual o acuerdos de confidencialidad?</label>
+      <input type="radio" id="leyesSi" name="leyes" value="si">
+      <label for="leyesSi">Sí</label>
+      <input type="radio" id="leyesNo" name="leyes" value="no">
+      <label for="leyesNo">No</label>
+
+      <label>¿La exposición de la información podría resultar en sanciones legales o regulatorias?</label>
+      <input type="radio" id="sancionesSi" name="sanciones" value="si">
+      <label for="sancionesSi">Sí</label>
+      <input type="radio" id="sancionesNo" name="sanciones" value="no">
+      <label for="sancionesNo">No</label>
+
+      <div class="button_container">
+        <button onclick="nextStep(2)">Siguiente</button>
+      </div>
+    </div>
+
+    <div id="step2" class="form-step">
+      <label>¿La información puede causar pérdidas si se expone?</label>
+      <input type="radio" id="perdidasSi" name="perdidas" value="si">
+      <label for="perdidasSi">Sí</label>
+      <input type="radio" id="perdidasNo" name="perdidas" value="no">
+      <label for="perdidasNo">No</label>
+
+      <label>¿La información puede exponer servicios si se expone?</label>
+      <input type="radio" id="exponerServiciosSi" name="exponerServicios" value="si">
+      <label for="exponerServiciosSi">Sí</label>
+      <input type="radio" id="exponerServiciosNo" name="exponerServicios" value="no">
+      <label for="exponerServiciosNo">No</label>
+
+      <label>¿La información contiene datos personales?</label>
+      <input type="radio" id="personalesSi" name="personales" value="si">
+      <label for="personalesSi">Sí</label>
+      <input type="radio" id="personalesNo" name="personales" value="no">
+      <label for="personalesNo">No</label>
+
+      <label>¿La información contiene estrategias comerciales o financieras de la empresa?</label>
+      <input type="radio" id="estrategiasSi" name="estrategias" value="si">
+      <label for="estrategiasSi">Sí</label>
+      <input type="radio" id="estrategiasNo" name="estrategias" value="no">
+      <label for="estrategiasNo">No</label>
+
+      <label>¿La información es relevante para los competidores de la empresa?</label>
+      <input type="radio" id="competidoresSi" name="competidores" value="si">
+      <label for="competidoresSi">Sí</label>
+      <input type="radio" id="competidoresNo" name="competidores" value="no">
+      <label for="competidoresNo">No</label>
+
+      <label>¿La información tiene algún valor comercial si se vende o se utiliza de manera inapropiada?</label>
+      <input type="radio" id="valorSi" name="valor" value="si">
+      <label for="valorSi">Sí</label>
+      <input type="radio" id="valorNo" name="valor" value="no">
+      <label for="valorNo">No</label>
+
+      <label>¿La información contiene detalles sobre los empleados de la empresa?</label>
+      <input type="radio" id="empleadosSi" name="empleados" value="si">
+      <label for="empleadosSi">Sí</label>
+      <input type="radio" id="empleadosNo" name="empleados" value="no">
+      <label for="empleadosNo">No</label>
+
+      <div class="button_container">
+        <button onclick="prevStep(1)">Anterior</button>
+        <button onclick="nextStep(3)">Siguiente</button>
+      </div>
+
+    </div>
+
+    <div id="step3" class="form-step">
+      <label>¿La información es de conocimiento general?</label>
+      <input type="radio" id="generalSi" name="general" value="si">
+      <label for="generalSi">Sí</label>
+      <input type="radio" id="generalNo" name="general" value="no">
+      <label for="generalNo">No</label>
+
+      <label>¿Es necesario verificar la exposición por imagen de la información?</label>
+      <input type="radio" id="imagenSi" name="imagen" value="si">
+      <label for="imagenSi">Sí</label>
+      <input type="radio" id="imagenNo" name="imagen" value="no">
+      <label for="imagenNo">No</label>
+
+      <div class="button_container">
+        <button onclick="prevStep(2)">Anterior</button>
+        <button onclick="clasificar()">Clasificar</button>
+      </div>
+    </div>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
